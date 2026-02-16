@@ -10,6 +10,12 @@
 
 With this plugin, you can create any number of fake switches that will start a timer when turned ON, when the delay time is reached the switch will automatically turn OFF and trigger a dedicated sensor (motion/contact/occupancy) for 3 seconds. This can be very useful for advanced automation with HomeKit scenes - when delayed actions are required.
 
+## Compatibility
+
+* Homebridge v2 compatible
+* Minimum Node.js: 18.18.0 (Homebridge v2 requirement)
+* HAP-NodeJS: v1
+
 ## Installations
 
 This plugin is Homebridge verified and HOOBS certified and can be easily installed and configured through their UI.

@@ -17,8 +17,8 @@
     "url": "https://github.com/nitaybz/homebridge-delay-switch/issues"
   },
   "engines": {
-    "node": ">=15.0.0",
-    "homebridge": ">=1.5.0"
+    "node": ">=18.18.0",
+    "homebridge": ">=2.0.0"
   },
   "funding": [
     {
@@ -41,5 +41,9 @@
   },
   "devDependencies": {
     "eslint": "^8.55.0"
+  },
+  "peerDependencies": {
+    "hap-nodejs": "^1.0.0",
+    "homebridge": "^2.0.0"
   }
 }

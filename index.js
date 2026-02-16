@@ -79,8 +79,8 @@ delaySwitch.prototype.getServices = function () {
 
 	this.switchService = new Service.Switch(this.name)
 	this.switchService.getCharacteristic(Characteristic.On)
-		.on('get', this.getOn.bind(this))
-		.on('set', this.setOn.bind(this))
+		.onGet(this.getOn.bind(this))
+		.onSet(this.setOn.bind(this))
 		.updateValue(this.startOnReboot)
 
 	var services = [informationService, this.switchService]
@@ -107,9 +107,7 @@ delaySwitch.prototype.getServices = function () {
 
 		this.sensorService
 			.getCharacteristic(this.sensorCharacteristic)
-			.on('get', (callback) => {
-				callback(null, this.getSensorState())
-			})
+			.onGet(() => this.getSensorState())
 
 		services.push(this.sensorService)
 	}
@@ -118,7 +116,7 @@ delaySwitch.prototype.getServices = function () {
 
 }
 
-delaySwitch.prototype.setOn = function (value, callback) {
+delaySwitch.prototype.setOn = function (value) {
 
 	if (value === false) {
 		this.log.easyDebug('Stopping the Timer')
@@ -150,9 +148,8 @@ delaySwitch.prototype.setOn = function (value, callback) {
 			}.bind(this), this.delayTime)
 		}
 	}
-	callback()
 }
 
-delaySwitch.prototype.getOn = function (callback) {
-	callback(null, this.switchOn)
+delaySwitch.prototype.getOn = function () {
+	return this.switchOn
 }
